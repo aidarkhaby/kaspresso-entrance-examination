@@ -52,7 +52,7 @@ class CerealStorageImpl(
         if (newAmount > 0) {
             storage[cereal] = newAmount
         } else {
-            storage.remove(cereal)
+            storage[cereal] = 0f
         }
 
         return taken

@@ -26,8 +26,8 @@ class CerealStorageImpl(
         val currentAmount = getAmount(cereal)
 
         if (currentAmount == 0f) {
-            val totalContainers = storage.size
-            val usedCapacity = totalContainers * containerCapacity
+            val containersWithCereal = storage.count { it.value > 0 }
+            val usedCapacity = containersWithCereal * containerCapacity
             if (usedCapacity + containerCapacity > storageCapacity) {
                 throw IllegalStateException("Хранилище не позволяет разместить ещё один контейнер")
             }
